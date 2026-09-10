@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>2000</width>
+    <height>1400</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="mouseTracking">
+   <bool>false</bool>
+  </property>
+  <property name="windowTitle">
+   <string>MapExtractor</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="contextMenuPolicy">
+    <enum>Qt::DefaultContextMenu</enum>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,4">
+      <property name="spacing">
+       <number>6</number>
+      </property>
+      <property name="sizeConstraint">
+       <enum>QLayout::SetDefaultConstraint</enum>
+      </property>
+      <item>
+       <widget class="QTreeWidget" name="treeWidget">
+        <property name="dragEnabled">
+         <bool>true</bool>
+        </property>
+        <property name="sortingEnabled">
+         <bool>true</bool>
+        </property>
+        <attribute name="headerVisible">
+         <bool>false</bool>
+        </attribute>
+        <column>
+         <property name="text">
+          <string>Layers</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string/>
+         </property>
+        </column>
+       </widget>
+      </item>
+      <item>
+       <widget class="QGraphicsView" name="graphic">
+        <property name="cursor" stdset="0">
+         <cursorShape>ArrowCursor</cursorShape>
+        </property>
+        <property name="mouseTracking">
+         <bool>true</bool>
+        </property>
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QLabel" name="label_coord">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <weight>50</weight>
+        <bold>false</bold>
+        <underline>true</underline>
+        <kerning>false</kerning>
+       </font>
+      </property>
+      <property name="cursor">
+       <cursorShape>ArrowCursor</cursorShape>
+      </property>
+      <property name="text">
+       <string>无图层</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+      <property name="margin">
+       <number>10</number>
+      </property>
+     </widget>
+    </item>
+   </layout>
+   <zorder></zorder>
+   <zorder>label_coord</zorder>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>2000</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <widget class="QMenu" name="menu_file">
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="title">
+     <string>文件</string>
+    </property>
+    <widget class="QMenu" name="menu_export">
+     <property name="title">
+      <string>导出为...</string>
+     </property>
+     <addaction name="action_export_to_png"/>
+     <addaction name="action_export_to_tif"/>
+    </widget>
+    <addaction name="action_import"/>
+    <addaction name="menu_export"/>
+   </widget>
+   <widget class="QMenu" name="menu_SIFT">
+    <property name="title">
+     <string>配准</string>
+    </property>
+    <addaction name="action_SIFT"/>
+   </widget>
+   <widget class="QMenu" name="menu_colormap">
+    <property name="title">
+     <string>映射</string>
+    </property>
+    <addaction name="action_quick_grey_scale"/>
+    <addaction name="action_color_scale"/>
+    <addaction name="action_color_classify"/>
+   </widget>
+   <addaction name="menu_file"/>
+   <addaction name="menu_SIFT"/>
+   <addaction name="menu_colormap"/>
+  </widget>
+  <action name="action_import">
+   <property name="text">
+    <string>导入图片</string>
+   </property>
+   <property name="iconText">
+    <string>导入图片</string>
+   </property>
+   <property name="font">
+    <font>
+     <family>Microsoft YaHei UI</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+  </action>
+  <action name="action_export_to_png">
+   <property name="text">
+    <string>导出为图片</string>
+   </property>
+   <property name="font">
+    <font>
+     <family>Microsoft YaHei UI</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+  </action>
+  <action name="action_export_to_tif">
+   <property name="text">
+    <string>导出为tif</string>
+   </property>
+   <property name="font">
+    <font>
+     <family>Microsoft YaHei UI</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+  </action>
+  <action name="action_SIFT">
+   <property name="text">
+    <string>SIFT匹配</string>
+   </property>
+   <property name="font">
+    <font>
+     <family>Microsoft YaHei UI</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+  </action>
+  <action name="action_quick_grey_scale">
+   <property name="text">
+    <string>快速灰度映射</string>
+   </property>
+   <property name="font">
+    <font>
+     <family>Microsoft YaHei UI</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+  </action>
+  <action name="action_color_scale">
+   <property name="text">
+    <string>彩色映射（连续）</string>
+   </property>
+   <property name="font">
+    <font>
+     <family>Microsoft YaHei UI</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+  </action>
+  <action name="action_color_classify">
+   <property name="text">
+    <string>彩色分类（离散）</string>
+   </property>
+   <property name="font">
+    <font>
+     <family>Microsoft YaHei UI</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>action_import</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>import_graph()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>action_export_to_png</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>export_to_png()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>action_export_to_tif</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>export_to_tif()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>action_SIFT</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>sift_dialog_show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>799</x>
+     <y>599</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>treeWidget</sender>
+   <signal>itemChanged(QTreeWidgetItem*,int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>update_layer()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>167</x>
+     <y>613</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>799</x>
+     <y>599</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>action_quick_grey_scale</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>greyscale_dialog_show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>799</x>
+     <y>599</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>action_color_scale</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>colorscale_dialog_show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>799</x>
+     <y>599</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>action_color_classify</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>colorclassify_dialog_show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>799</x>
+     <y>599</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>import_graph()</slot>
+  <slot>export_to_png()</slot>
+  <slot>export_to_tif()</slot>
+  <slot>sift_dialog_show()</slot>
+  <slot>update_layer()</slot>
+  <slot>greyscale_dialog_show()</slot>
+  <slot>colorscale_dialog_show()</slot>
+  <slot>colorclassify_dialog_show()</slot>
+ </slots>
+</ui>

@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SIFTDialog</class>
+ <widget class="QDialog" name="SIFTDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1800</width>
+    <height>1400</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>SIFT匹配</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout_2">
+   <item row="0" column="0">
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="12" column="0">
+      <widget class="QLineEdit" name="lineEdit_rows">
+       <property name="text">
+        <string>720</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0" colspan="2">
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>选择目标图像</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0" colspan="2">
+      <widget class="QLabel" name="label_6">
+       <property name="text">
+        <string>选择基准文件（无需主动选择）</string>
+       </property>
+      </widget>
+     </item>
+     <item row="12" column="1">
+      <widget class="QLineEdit" name="lineEdit_cols">
+       <property name="text">
+        <string>1440</string>
+       </property>
+      </widget>
+     </item>
+     <item row="9" column="0" colspan="2">
+      <widget class="QLineEdit" name="lineEdit_name">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="placeholderText">
+        <string>SIFT_Figure1</string>
+       </property>
+       <property name="clearButtonEnabled">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="11" column="0">
+      <widget class="QLabel" name="label_3">
+       <property name="text">
+        <string>输出行数</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="0" colspan="2">
+      <widget class="QLabel" name="label_9">
+       <property name="text">
+        <string>提取特征范围</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="0" colspan="2">
+      <layout class="QHBoxLayout" name="horizontalLayout_5">
+       <property name="sizeConstraint">
+        <enum>QLayout::SetNoConstraint</enum>
+       </property>
+       <item>
+        <widget class="QRadioButton" name="radioButton_3">
+         <property name="text">
+          <string>填充（边缘与陆地一致或较不明显）</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+         <attribute name="buttonGroup">
+          <string notr="true">buttonGroup_edge</string>
+         </attribute>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="radioButton_4">
+         <property name="text">
+          <string>边缘（边缘具有明显黑色线条）</string>
+         </property>
+         <attribute name="buttonGroup">
+          <string notr="true">buttonGroup_edge</string>
+         </attribute>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="7" column="0" colspan="2">
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <property name="sizeConstraint">
+        <enum>QLayout::SetNoConstraint</enum>
+       </property>
+       <item>
+        <widget class="QRadioButton" name="radioButton_range">
+         <property name="text">
+          <string>陆地</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+         <attribute name="buttonGroup">
+          <string notr="true">buttonGroup_range</string>
+         </attribute>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="radioButton_edge">
+         <property name="text">
+          <string>海洋</string>
+         </property>
+         <attribute name="buttonGroup">
+          <string notr="true">buttonGroup_range</string>
+         </attribute>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="3" column="0" colspan="2">
+      <widget class="QComboBox" name="comboBox">
+       <property name="inputMethodHints">
+        <set>Qt::ImhNone</set>
+       </property>
+       <property name="currentText">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="18" column="0" colspan="2">
+      <widget class="QLabel" name="label_5">
+       <property name="text">
+        <string>对照图预览</string>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="0" colspan="2">
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string>输出变量临时名称</string>
+       </property>
+      </widget>
+     </item>
+     <item row="16" column="0">
+      <widget class="QLabel" name="label_10">
+       <property name="text">
+        <string>SIFT匹配度</string>
+       </property>
+      </widget>
+     </item>
+     <item row="19" column="0" colspan="2">
+      <widget class="QGraphicsView" name="graphicsView">
+       <property name="verticalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="horizontalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="sizeAdjustPolicy">
+        <enum>QAbstractScrollArea::AdjustToContents</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="16" column="1">
+      <widget class="QLabel" name="label_11">
+       <property name="text">
+        <string>最小特征匹配数</string>
+       </property>
+      </widget>
+     </item>
+     <item row="20" column="0" colspan="2">
+      <widget class="QDialogButtonBox" name="buttonBox">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::LeftToRight</enum>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="standardButtons">
+        <set>QDialogButtonBox::Apply|QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+       </property>
+       <property name="centerButtons">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="17" column="0">
+      <widget class="QLineEdit" name="lineEdit_matchrate">
+       <property name="text">
+        <string>0.7</string>
+       </property>
+       <property name="placeholderText">
+        <string>0-1</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0" colspan="2">
+      <widget class="QLabel" name="label_8">
+       <property name="text">
+        <string>目标图片海陆边界特征</string>
+       </property>
+      </widget>
+     </item>
+     <item row="14" column="0" colspan="2">
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <property name="sizeConstraint">
+        <enum>QLayout::SetNoConstraint</enum>
+       </property>
+       <item>
+        <widget class="QRadioButton" name="radioButton_6">
+         <property name="text">
+          <string>EPSG</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+         <attribute name="buttonGroup">
+          <string notr="true">buttonGroup_coord</string>
+         </attribute>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="radioButton_5">
+         <property name="text">
+          <string>ESRI</string>
+         </property>
+         <attribute name="buttonGroup">
+          <string notr="true">buttonGroup_coord</string>
+         </attribute>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="17" column="1">
+      <widget class="QLineEdit" name="lineEdit_minmatch">
+       <property name="text">
+        <string>10</string>
+       </property>
+      </widget>
+     </item>
+     <item row="15" column="0" colspan="2">
+      <widget class="QLineEdit" name="lineEdit_coord">
+       <property name="text">
+        <string>4326</string>
+       </property>
+       <property name="placeholderText">
+        <string>4326  (EPSG:4326 — WGS1984 EPSG:3857 — Web Mercator)</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0" colspan="2">
+      <layout class="QHBoxLayout" name="horizontalLayout_4">
+       <item>
+        <widget class="QLineEdit" name="lineEdit_srcImg">
+         <property name="inputMask">
+          <string/>
+         </property>
+         <property name="text">
+          <string>worldmap/continent025.tif</string>
+         </property>
+         <property name="frame">
+          <bool>true</bool>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+         <property name="placeholderText">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QToolButton" name="toolButton_import_srcImg">
+         <property name="text">
+          <string>...</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="11" column="1">
+      <widget class="QLabel" name="label_4">
+       <property name="text">
+        <string>输出列数</string>
+       </property>
+      </widget>
+     </item>
+     <item row="13" column="0" colspan="2">
+      <widget class="QLabel" name="label_7">
+       <property name="text">
+        <string>坐标系ID</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>clicked(QAbstractButton*)</signal>
+   <receiver>SIFTDialog</receiver>
+   <slot>preview()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>299</x>
+     <y>779</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>299</x>
+     <y>399</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>SIFTDialog</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>316</x>
+     <y>260</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>286</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>SIFTDialog</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>248</x>
+     <y>254</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>157</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>toolButton_import_srcImg</sender>
+   <signal>clicked()</signal>
+   <receiver>SIFTDialog</receiver>
+   <slot>import_graph()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>770</x>
+     <y>37</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>399</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>comboBox</sender>
+   <signal>activated(QString)</signal>
+   <receiver>SIFTDialog</receiver>
+   <slot>combo_draw()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>399</x>
+     <y>82</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>399</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>preview()</slot>
+  <slot>import_graph()</slot>
+  <slot>combo_draw()</slot>
+ </slots>
+ <buttongroups>
+  <buttongroup name="buttonGroup_range"/>
+  <buttongroup name="buttonGroup_coord"/>
+  <buttongroup name="buttonGroup_edge"/>
+ </buttongroups>
+</ui>

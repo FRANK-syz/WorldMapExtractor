@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ColorclassifyDialog</class>
+ <widget class="QDialog" name="ColorclassifyDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1800</width>
+    <height>1400</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>彩色分类</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout_2">
+   <item row="0" column="0">
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="2" column="0" colspan="2">
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>选择已配置的目标图像</string>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="0" colspan="2">
+      <widget class="QLineEdit" name="lineEdit_points">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="placeholderText">
+        <string>(100,100),(100,300),(100,500)...</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="0">
+      <widget class="QPushButton" name="pushButton">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text">
+        <string>手动添加坐标</string>
+       </property>
+      </widget>
+     </item>
+     <item row="16" column="0" colspan="2">
+      <widget class="QGraphicsView" name="graphicsView">
+       <property name="mouseTracking">
+        <bool>true</bool>
+       </property>
+       <property name="verticalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="horizontalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="sizeAdjustPolicy">
+        <enum>QAbstractScrollArea::AdjustToContents</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="10" column="0" colspan="2">
+      <widget class="QLineEdit" name="lineEdit_values">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="placeholderText">
+        <string>2.5,7.5,12.5...</string>
+       </property>
+      </widget>
+     </item>
+     <item row="13" column="1">
+      <widget class="QLabel" name="label_11">
+       <property name="text">
+        <string>背景灰度值</string>
+       </property>
+      </widget>
+     </item>
+     <item row="9" column="0" colspan="2">
+      <widget class="QLabel" name="label_9">
+       <property name="text">
+        <string>colorbar坐标对应平均值</string>
+       </property>
+      </widget>
+     </item>
+     <item row="14" column="0">
+      <widget class="QLineEdit" name="lineEdit_backgroundvalue">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="placeholderText">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0" colspan="2">
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QLineEdit" name="lineEdit_barImg">
+         <property name="inputMask">
+          <string/>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="frame">
+          <bool>true</bool>
+         </property>
+         <property name="readOnly">
+          <bool>false</bool>
+         </property>
+         <property name="placeholderText">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QToolButton" name="toolButton_import_barImg">
+         <property name="text">
+          <string>...</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="12" column="0" colspan="2">
+      <widget class="QLineEdit" name="lineEdit_tolerance">
+       <property name="text">
+        <string>50</string>
+       </property>
+       <property name="placeholderText">
+        <string>0-255</string>
+       </property>
+      </widget>
+     </item>
+     <item row="11" column="0" colspan="2">
+      <widget class="QLabel" name="label_13">
+       <property name="text">
+        <string>容差(目标图像像素与colorbar中邻近RGB的最大偏差)</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="1">
+      <widget class="QLabel" name="label_choose">
+       <property name="text">
+        <string>未开始选择</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="0" colspan="2">
+      <widget class="QLineEdit" name="lineEdit_name">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="placeholderText">
+        <string>Colorclassified_Figure1</string>
+       </property>
+       <property name="clearButtonEnabled">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0" colspan="2">
+      <widget class="QLabel" name="label_6">
+       <property name="text">
+        <string>导入colorbar图像</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0" colspan="2">
+      <widget class="QComboBox" name="comboBox">
+       <property name="inputMethodHints">
+        <set>Qt::ImhNone</set>
+       </property>
+       <property name="currentText">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="15" column="0">
+      <widget class="QLabel" name="label_5">
+       <property name="text">
+        <string>colorbar预览</string>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="0" colspan="2">
+      <widget class="QLabel" name="label_8">
+       <property name="text">
+        <string>colorbar分类一一对应坐标（行号,列号）</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0" colspan="2">
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string>输出变量临时名称</string>
+       </property>
+      </widget>
+     </item>
+     <item row="13" column="0">
+      <widget class="QLabel" name="label_10">
+       <property name="text">
+        <string>设置为背景值</string>
+       </property>
+      </widget>
+     </item>
+     <item row="14" column="1">
+      <widget class="QLineEdit" name="lineEdit_backgroundrgb">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="placeholderText">
+        <string>[0-255,0-255,0-255]</string>
+       </property>
+      </widget>
+     </item>
+     <item row="15" column="1">
+      <widget class="QLabel" name="label_coord">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="17" column="0" colspan="2">
+      <widget class="QDialogButtonBox" name="buttonBox">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::LeftToRight</enum>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="standardButtons">
+        <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+       </property>
+       <property name="centerButtons">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>toolButton_import_barImg</sender>
+   <signal>clicked()</signal>
+   <receiver>ColorclassifyDialog</receiver>
+   <slot>import_graph()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>196</x>
+     <y>57</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>399</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>ColorclassifyDialog</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>399</x>
+     <y>978</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>499</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>ColorclassifyDialog</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>399</x>
+     <y>978</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>499</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>ColorclassifyDialog</receiver>
+   <slot>change_flag()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>203</x>
+     <y>192</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>499</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>import_graph()</slot>
+  <slot>change_flag()</slot>
+ </slots>
+ <buttongroups>
+  <buttongroup name="buttonGroup"/>
+ </buttongroups>
+</ui>
